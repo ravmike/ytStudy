@@ -11,7 +11,7 @@ print(finish)
 def response(flow: http.HTTPFlow) -> None:
     flow.response.headers["newheader"] = 'foo'
 def request(flow: http.HTTPFlow) -> None:
-    data = flow.request
+    data = flow.request #save request data
     form = data.query["mime"]
     rng = data.query["range"]
     pixel = data.query["itag"]
