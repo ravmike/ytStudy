@@ -17,11 +17,12 @@ def request(flow: http.HTTPFlow) -> None:
     pixel = data.query["itag"]
     dur = data.query["dur"]
     buffer = data.query["rbuf"]
+    clen = data.query["clen"]
     req_s = getattr(flow.request, "timestamp_start")
     req_e = getattr(flow.request, "timestamp_end")
     res_s = getattr(flow.response, "timestamp_start")
     res_e = getattr(flow.response, "timestamp_end")
-    data_lst = [form, pixel, dur, rng, buffer, req_s, req_e, res_s, res_e]
+    data_lst = [form, pixel, dur, rng, buffer, clen, req_s, req_e, res_s, res_e]
     write_to_file(data_lst)
 def write_to_file(data):
     with open (finish, "a") as f:
